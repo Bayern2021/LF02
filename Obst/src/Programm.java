@@ -11,6 +11,12 @@ public class Programm {
         Banane banane = new Banane();
         System.out.println(banane.getName());
 
+        Apfel apfelNeu = new Apfel();
+        System.out.println(apfelNeu.getName());
+        System.out.println(apfelNeu.getFarbe());
+        System.out.println(apfelNeu.ausgeben());
+        System.out.println(apfelNeu);
+
 
 
 

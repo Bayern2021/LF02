@@ -5,13 +5,17 @@ public abstract class Obst {
    private boolean reif ;
 
    public Obst(String name){
+
        this.name = name;
    }
 
    public String getName(){
+
        return name;
    }
    public String getFarbe(){
+
+
        return farbe;
    }
    public void setFarbe(String farbe) {
@@ -19,11 +23,13 @@ public abstract class Obst {
    }
 
     public double getGewicht() {
-        return gewicht;
+
+       return gewicht;
     }
 
     public void setGewicht(double gewicht) {
-        this.gewicht = gewicht;
+
+       this.gewicht = gewicht;
     }
 
     public boolean isReif() {
@@ -33,5 +39,13 @@ public abstract class Obst {
     public void setReif(boolean reif) {
         this.reif = reif;
     }
+     public String toString(){
+       String text = "Name ="   + name;
+       text += "\n\tfarbe = "   + farbe;
+       text += "\n\tGewicht = " + gewicht;
+       text += "\n\treif = "    + reif;
+
+       return text;
+     }
 }
 
