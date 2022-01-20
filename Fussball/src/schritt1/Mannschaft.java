@@ -10,13 +10,16 @@ public class Mannschaft {
     private ArrayList<Spieler> spielerArrayList;
     private int motivation;
     private int motivationMittelwert;
+    private int staerke;
+    private int mittelwertStaertke;
 
-    public Mannschaft(String name,Trainer trainer,Torwart torwart,ArrayList<Spieler> spielerArrayList ,int motivation){
+    public Mannschaft(String name,Trainer trainer,Torwart torwart,ArrayList<Spieler> spielerArrayList ,int motivation,int staerke){
         this.name = name;
         this.trainer= trainer;
         this.torwart = torwart;
         this.spielerArrayList = spielerArrayList;
         this.motivation = motivation;
+        this.staerke = staerke;
     }
 
     public String getName() {
@@ -61,6 +64,18 @@ public class Mannschaft {
         motivation+= torwart.getMotivation();
         motivationMittelwert= motivation/(spielerArrayList.size()+1);
         return motivation;
+    }
+    public int getStaerke() {
+        for (Spieler i:
+             spielerArrayList) {
+            staerke+= i.getStaerke();
+
+        }
+        staerke+= torwart.getStaerke();
+        mittelwertStaertke = staerke/(spielerArrayList.size()+1);
+        return staerke;
+
+
     }
 
 }
