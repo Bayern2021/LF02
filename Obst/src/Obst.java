@@ -39,6 +39,7 @@ public abstract class Obst {
     public void setReif(boolean reif) {
         this.reif = reif;
     }
+    @Override
      public String toString(){
        String text = "Name ="   + name;
        text += "\n\tfarbe = "   + farbe;
