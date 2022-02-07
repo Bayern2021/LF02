@@ -12,11 +12,11 @@ public class Ergebnis {
         return erzielteTrefferGast;
     }
 
-    public void setErzielteTrefferHeim() {
+    public void addToreHeim() {
         erzielteTrefferHeim ++;
     }
 
-    public void setErzielteTrefferGast() {
+    public void addToreGast() {
        erzielteTrefferGast++;
     }
 

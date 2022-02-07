@@ -7,17 +7,17 @@ public class Mannschaft {
     private String name ;
     private Trainer trainer;
     private Torwart torwart;
-    private ArrayList<Spieler> spielerArrayList;
+    private ArrayList<Spieler> spielerListe;
     private int motivation;
     private int motivationMittelwert;
     private int staerke;
     private int mittelwertStaerke;
 
-    public Mannschaft(String name,Trainer trainer,Torwart torwart,ArrayList<Spieler> spielerArrayList ){
+    public Mannschaft(String name,Trainer trainer,Torwart torwart,ArrayList<Spieler> spielerListe ){
         this.name = name;
         this.trainer= trainer;
         this.torwart = torwart;
-        this.spielerArrayList = spielerArrayList;
+        this.spielerListe = spielerListe;
 
     }
 
@@ -33,8 +33,8 @@ public class Mannschaft {
         return torwart;
     }
 
-    public ArrayList<Spieler> getSpielerArrayList() {
-        return spielerArrayList;
+    public ArrayList<Spieler> getSpielerListe() {
+        return spielerListe;
     }
 
 
@@ -51,27 +51,27 @@ public class Mannschaft {
     }
 
     public void setSpielerArrayList(ArrayList<Spieler> spielerArrayList) {
-        this.spielerArrayList = spielerArrayList;
+        this.spielerListe = spielerArrayList;
     }
 
     public int getMotivation() {
         for (Spieler i:
-             spielerArrayList) {
+             spielerListe) {
             motivation += i.getMotivation();
 
         }
         motivation+= torwart.getMotivation();
-        motivationMittelwert= motivation/(spielerArrayList.size()+1);
+        motivationMittelwert= motivation/(spielerListe.size()+1);
         return motivationMittelwert;
     }
     public int getStaerke() {
         for (Spieler i:
-             spielerArrayList) {
+             spielerListe) {
             staerke+= i.getStaerke();
 
         }
         staerke+= torwart.getStaerke();
-        mittelwertStaerke = staerke/(spielerArrayList.size()+1);
+        mittelwertStaerke = staerke/(spielerListe.size()+1);
         return mittelwertStaerke;
 
 
@@ -82,7 +82,7 @@ public class Mannschaft {
         String text = "\nName :"+name+"\n";
         text += "\nTrainer:\n"+ trainer;
         text += "\nTorwart:"+ torwart;
-        text += "\nSpieler:"+ getSpielerArrayList();
+        text += "\nSpieler:"+ getSpielerListe();
         text += "\n\nMotivationsmittelwert:"+ getMotivation();
         text += "\nStärkendurchschnitt:"+ getStaerke();
         return text;

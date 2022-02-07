@@ -4,7 +4,7 @@ public class Spiel {
     private Mannschaft heim;
     private Mannschaft gast;
     private Ergebnis ergebnis;
-    private StringBuilder spielverlauf;
+    private StringBuilder spielbericht;
 
     public Spiel(Mannschaft heim,Mannschaft gast,Ergebnis ergebnis){
         this.heim = heim;
@@ -25,13 +25,13 @@ public class Spiel {
         return ergebnis;
     }
 
-    public StringBuilder getSpielverlauf() {
-        return spielverlauf;
+    public StringBuilder getSpielbericht() {
+        return spielbericht;
     }
     @Override
     public String toString(){
          String text =  "\n\t" + "Ergebnis:"+ getErgebnis();
-        text += "\n\t" + "Spielverlauf"+ getSpielverlauf();
+        text += "\n\t" + "Spielverlauf"+ getSpielbericht();
         return text ;
     }
 }
