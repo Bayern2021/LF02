@@ -13,6 +13,6 @@ public class SpielAbbruchException extends Exception{
 
     @Override
     public String getMessage() {
-        return "Spielabbruch in Minute"+ spielminute;
+        return  "Spielabbruch in Minute"+ spielminute;
     }
 }

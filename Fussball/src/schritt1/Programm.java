@@ -26,20 +26,20 @@ public class Programm {
         Mannschaft gast = new Mannschaft("Borussia Dortmund",trainer2,torwart2,spielerListeGast);
 
 
-        System.out.println(heim);
+       Ergebnis ergebnis = new Ergebnis();
 
-        System.out.println(gast);
-
-        Ergebnis ergebnis = new Ergebnis();
-        ergebnis.setErzielteTrefferHeim();
-
-        Spiel spiel = new Spiel(heim,gast,ergebnis);
+        Spiel spiel = new Spiel(heim, gast, ergebnis);
         System.out.println(spiel);
+
+
 
         try{
             Gameplay.spielen(spiel);
+            System.out.println(spiel);
         }catch (SpielAbbruchException e){
+            System.out.println(spiel.getSpielbericht());
             System.out.println(e.getMessage());
+            System.out.println("Stand bei Abbruch:"+spiel.getErgebnis().getErzielteTrefferHeim()+":"+ spiel.getErgebnis().getErzielteTrefferGast());
         }
 
 

@@ -9,7 +9,8 @@ public class Spiel {
     public Spiel(Mannschaft heim,Mannschaft gast,Ergebnis ergebnis){
         this.heim = heim;
         this.gast = gast;
-        this.ergebnis = ergebnis;
+        ergebnis = new Ergebnis();
+        spielbericht = new StringBuilder();
 
     }
 
@@ -30,8 +31,8 @@ public class Spiel {
     }
     @Override
     public String toString(){
-         String text =  "\n\t" + "Ergebnis:"+ getErgebnis();
-        text += "\n\t" + "Spielverlauf"+ getSpielbericht();
+         String text = "Spiel zwischen "+ heim.getName()+gast.getName();
+        text = text + spielbericht;
         return text ;
     }
 }
