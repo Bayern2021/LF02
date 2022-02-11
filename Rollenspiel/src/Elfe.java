@@ -14,6 +14,7 @@ public class Elfe extends Spielfigur {
 
     @Override
     public String toString() {
-        String text =
+        String text = super.toString();
+        return text;
     }
 }
