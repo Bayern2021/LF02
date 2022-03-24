@@ -4,52 +4,105 @@ import java.io.PrintWriter;
 
 public class ProgrammWriteCsv {
     public static void main(String[] args) throws FileNotFoundException {
-        Ware ware = new Ware("Laptop", 250.0);
-        ware.setBeschreibung("Super krasses Gaming-Laptop");
-        ware.getBesonderheiten().add("Tasche");
-        ware.getBesonderheiten().add("Gaming-Maus");
-        ware.getMaengel().add("Ladekabel fehlt");
-        ware.getMaengel().add("Touchpad defekt");
-
-        Vertragspartner kaeufer = new Vertragspartner("Klaus", "Brandt");
-        kaeufer.setAusweisNr("0123456789");
-        kaeufer.setAdresse(new Adresse("Zu Hause", "3a", "28199", "Bremen"));
-
-        Vertragspartner verkaeufer = new Vertragspartner("Joachim", "Bredull");
-        verkaeufer.setAusweisNr("9876543210");
-        verkaeufer.setAdresse(new Adresse("Auch zu Hause", "7", "28195", "Bremen"));
-
-        Kaufvertrag vertrag = new Kaufvertrag(verkaeufer, kaeufer, ware);
-        vertrag.setZahlungsModalitaeten("Privater Barverkauf");
-
-
-            erstelleCsv(vertrag);
+        csv(KaufvertragErstellen());
 
     }
-    private static void erstelleCsv(Kaufvertrag kaufvertrag) throws FileNotFoundException {
-        String datei = "C:\\Users\\Mohamed\\IdeaProjects\\LF02\\Kaufvertrag\\Data\\Kaufvertrag.csv";
-        PrintWriter writer = new PrintWriter(datei);
-        writer.println("\n\t"+"Vertragspartner ;" + "Name ;" + "Straße ;" + "Plz ;" + "Ort");
-
-        writer.print("Käufer ;");
-        writer.print(kaufvertrag.getKaeufer().getVorname()+" "+ kaufvertrag.getKaeufer().getNachname()+";");
-        writer.print(kaufvertrag.getKaeufer().getAusweisNr()+";");
-        writer.print(kaufvertrag.getKaeufer().getAdresse().getStrasse()+" "+kaufvertrag.getKaeufer().getAdresse().getHausNr()+";");
-        writer.println(kaufvertrag.getKaeufer().getAdresse().getPlz()+" "+kaufvertrag.getKaeufer().getAdresse().getOrt());
-
-        writer.print("Verkäufer ;");
-        writer.print(kaufvertrag.getVerkaeufer().getVorname()+" "+kaufvertrag.getVerkaeufer().getNachname()+";");
-        writer.print(kaufvertrag.getVerkaeufer().getAusweisNr()+";");
-        writer.print(kaufvertrag.getVerkaeufer().getAdresse().getStrasse()+" "+kaufvertrag.getVerkaeufer().getAdresse().getHausNr()+";");
-        writer.println(kaufvertrag.getVerkaeufer().getAdresse().getPlz()+" "+kaufvertrag.getVerkaeufer().getAdresse().getOrt());
 
 
 
-        writer.close();
-        
+    public static Kaufvertrag KaufvertragErstellen() {
+
+        //Käufer
+
+        Vertragspartner Käufer = new Vertragspartner("Azam", "Alali");
+
+        Adresse Käuferadresse = new Adresse("Vohnen", "88", "28307", "Bremen");
+
+        Käufer.setAdresse(Käuferadresse);
+
+        Käufer.setAusweisNr("789650368657");
 
 
 
+        //Verkäufer
+
+        Vertragspartner Verkäufer = new Vertragspartner("Mohmaed", "Abazid");
+
+        Adresse Verkäuferadresse = new Adresse("Schwachahusen", "41", "28259", "Bremen");
+
+        Verkäufer.setAdresse(Verkäuferadresse);
+
+        Verkäufer.setAusweisNr("987169854265");
+
+
+
+        //Ware
+
+        Ware Ott = new Ware("0,7", 10);
+
+
+
+
+
+        //Vertrag
+
+        Kaufvertrag kaufvertrag = new Kaufvertrag(Verkäufer, Käufer, Ott);
+
+
+
+        return kaufvertrag;
+
+    }
+
+
+
+    public static void csv(Kaufvertrag kaufvertrag) throws FileNotFoundException {
+
+        PrintWriter pw = new PrintWriter("C:\\Users\\Mohamed\\IdeaProjects\\LF02\\Kaufvertrag\\Data\\Kaufvertrag.csv");
+
+        pw.print("Vertragsparntner;");
+
+        pw.print("Name;");
+
+        pw.print("Straße;");
+
+        pw.print("PLZ;");
+
+        pw.print("Ort;");
+
+        pw.println("AusweissNr");
+
+
+
+        pw.print("Verkaeufer;");
+
+        pw.print(kaufvertrag.getVerkaeufer().getNachname() + "," + kaufvertrag.getVerkaeufer().getVorname() + ";");
+
+        pw.print(kaufvertrag.getVerkaeufer().getAdresse().getStrasse() + "," + kaufvertrag.getVerkaeufer().getAdresse().getHausNr() + ";");
+
+        pw.print(kaufvertrag.getVerkaeufer().getAdresse().getPlz() + ";");
+
+        pw.print(kaufvertrag.getVerkaeufer().getAdresse().getOrt() + ";");
+
+        pw.println(kaufvertrag.getVerkaeufer().getAusweisNr());
+
+
+
+        pw.print("Kaeufer;");
+
+        pw.print(kaufvertrag.getKaeufer().getNachname() + "," + kaufvertrag.getKaeufer().getVorname() + ";");
+
+        pw.print(kaufvertrag.getKaeufer().getAdresse().getStrasse() + "," + kaufvertrag.getKaeufer().getAdresse().getHausNr() + ";");
+
+        pw.print(kaufvertrag.getKaeufer().getAdresse().getPlz() + ";");
+
+        pw.print(kaufvertrag.getKaeufer().getAdresse().getOrt() + ";");
+
+        pw.println(kaufvertrag.getKaeufer().getAusweisNr());
+
+
+
+        pw.close();
 
 
     }
